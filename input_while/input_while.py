@@ -6,21 +6,40 @@ Author: Donald Butters
 
 Last date modified: 9/25/2020
 
-The purpose of this program is prompt for 5 inputs between 1-100 and save to list.
+The purpose of this program is prompt for inputs between 1-100 and save to list.
 Then the program out puts the list
 
 """
 
-list_1 = []
-values = range(1,100)
-print("Enter 5 numbers between 1-100")
-for i in range(5):
-    numbers = int(input("Enter # :"))
-    if numbers in values:
-     list_1.append(numbers)
+#input_while.py
+
+user_numbers = []
+value = 1
+
+while value != 404:
+    try:
+        x = int(input("Please Enter a number between 1 and 100. Type 404 to exit. : "))
+    except ValueError:
+        print('##Input Error - Yeah, gonna need to use the number keys for this.##' )
+        print()
+        continue
+    if x in range(1,101):
+        user_numbers.append(x)
+        print('Thank you, your number has been added.')
+        print()
+        print()
+    elif x == 404:
+        break
     else:
-        input("Please use a number between 1 -100 :")
-print (list_1)
+        print('##Input Error##' )
+        print()
+
+print('Your numbers are: ')
+print()
+for i in user_numbers:
+    print(i)
+print()
+print('Goodbye.')
 
 '''comments
 I found out after some testing of this code that if I enter the wrong number over and over
