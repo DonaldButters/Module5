@@ -14,32 +14,23 @@ Then the program out puts the list
 #input_while.py
 
 user_numbers = []
-value = 1
+stopvalue = 404
 
-while value != 404:
-    try:
-        x = int(input("Please Enter a number between 1 and 100. Type 404 to exit. : "))
-    except ValueError:
-        print('##Input Error - Yeah, gonna need to use the number keys for this.##' )
-        print()
-        continue
-    if x in range(1,101):
-        user_numbers.append(x)
-        print('Thank you, your number has been added.')
-        print()
-        print()
-    elif x == 404:
-        break
+x = int(input("Please Enter a number between 1 and 100. Type 404 to exit. : "))
+
+while x != stopvalue:
+    while x not in range(1,101):
+        x = int(input("Incorrect. Please enter only numbers 1-100. :"))
     else:
-        print('##Input Error##' )
-        print()
+        user_numbers.append(x)
+        x = int(input("Please Enter a number between 1 and 100. Type 404 to exit. : "))
 
 print('Your numbers are: ')
-print()
 for i in user_numbers:
     print(i)
-print()
 print('Goodbye.')
+
+
 
 '''comments
 I found out after some testing of this code that if I enter the wrong number over and over
